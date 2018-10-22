@@ -1,0 +1,7 @@
+<div class="card w100" style="width: 18rem;" *ngFor="let usuario of usuarios">
+    <img class="card-img-top img-fluid img-rounded" [src]="usuario.img | imagen" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{usuario.nombre}}</h5>
+        <p class="card-text">{{usuario.email}}</p>
+    </div>
+</div>

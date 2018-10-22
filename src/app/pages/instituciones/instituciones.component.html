@@ -1,0 +1,89 @@
+<div class="row">
+
+    <div class="col-md-7">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Creación y modificación de instituciones</h3>
+            <p class="text-muted m-b-30 font-13"> Ingrese los datos de la institución </p>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form ngNativeValidate [formGroup]="forma" (ngSubmit)="crearInstitucion($event)">
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input formControlName="nombre" type="text" class="form-control" id="nombre" name="nombre" required placeholder="Nombre institución">
+                        </div>
+                        <div class="form-group">
+                            <label for="direccion">Dirección</label>
+                            <input formControlName="direccion" type="text" class="form-control" id="direccion" name="direccion" required placeholder="Dirección">
+                        </div>
+                        <div class="form-group">
+                            <label for="c_academico">Coordinador académico</label>
+                            <input formControlName="c_academico" type="text" class="form-control" id="c_academico" name="c_academico" placeholder="Nombre coordinador académico">
+                        </div>
+                        <div class="form-group">
+                            <label for="c_disciplinario">Coordinador disciplinario</label>
+                            <input formControlName="c_disciplinario" type="text" class="form-control" id="c_disciplinario" name="c_disciplinario" placeholder="Nombre coordinador disciplinario">
+                        </div>
+                        <div class="form-group">
+                            <label for="rector">Rector</label>
+                            <input formControlName="rector" type="text" class="form-control" id="rector" name="rector" placeholder="Nombre del rector">
+                        </div>
+                        <div class="form-group">
+                            <label for="nucleo">Núcleo</label>
+                            <input formControlName="nucleo" type="text" class="form-control" id="nucleo" placeholder="Nombre del núcleo">
+                        </div>
+                        <div class="form-group">
+                            <label for="p_web">Página web</label>
+                            <input formControlName="p_web" type="text" class="form-control" id="p_web" placeholder="Página web">
+                        </div>
+                        <div class="form-group">
+                            <label for="modalidad">Modalidad</label>
+                            <select formControlName="modalidad" class="form-control" id="modalidad" name="modalidad">
+                              <option>Académica</option>
+                              <option>Técnica</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="n_estudiantes">Número de estudiantes inscritos</label>
+                            <input formControlName="n_estudiantes" type="text" class="form-control" id="n_estudiantes" name="n_estudiantes" placeholder="Número de estudiantes">
+                        </div>
+                        <div class="form-group">
+                            <label for="n_docentes">Número de docentes</label>
+                            <input formControlName="n_docentes" type="text" class="form-control" id="n_docentes" name="n_docentes" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="Jornadas">Jornadas</label>
+                            <select formControlName="jornadas" class="form-control" id="jornadas" name="jornadas">
+                              <option>Mañana</option>
+                              <option>Tarde</option>
+                              <option>Nocturna</option>
+                              <option>Mañana y tarde</option>
+                              <option>Mañana, tarde y nocturna</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block waves-effect waves-light m-r-10">Guardar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="card card-body" align="center">
+            <h3 class="box-title m-b-0">Fotografía del institución</h3>
+            <p class="text-muted m-b-30 font-13"> --- </p>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+
+                    <img *ngIf="!imagenTemporal" [src]="institucion | imagen" class="w150 img-rounded">
+                    <img *ngIf="imagenTemporal" [src]="imagenTemporal" class="w150 img-rounded">
+                    <br><br>
+                    <input (change)="seleccionImage( $event.target.files[0] )" type="file" class="btn-file img-fluid" multiple>
+                    <br><br>
+                    <button (click)="cambiarImagen()" [disabled]="!imagenSubir" type="button" class="btn btn-success btn-block waves-effect waves-light m-r-10">Actualizar imagen</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
